@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-import { api } from "../services/api";
+import { createContext, ReactNode, useEffect, useState } from 'react';
+import { api } from '../services/api';
 
 type User = {
   id: string;
@@ -60,23 +60,21 @@ export function AuthProvider(props: AuthProvider) {
       });
     }
 
-  }, [])
+  }, []);
 
   useEffect(() => {
-    const url = window.location.href
-    const hasGithubCode = url.includes('?code=')
+    const url = window.location.href;
+    const hasGithubCode = url.includes('?code=');
 
     if(hasGithubCode) {
-      const [urlWhithoutCode, githubCode] = url.split('?code=')
+      const [urlWhithoutCode, githubCode] = url.split('?code=');      
 
-      console.log({ urlWhithoutCode, githubCode })
-
-      window.history.pushState({}, '', urlWhithoutCode)
+      window.history.pushState({}, '', urlWhithoutCode);
       
-      signIn(githubCode)
+      signIn(githubCode);
     }
 
-  }, [])
+  }, []);
 
   return (
     <AuthContext.Provider value={{signInUrl, user, signOut}}>
