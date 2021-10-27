@@ -7,7 +7,7 @@ import './styles/global.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
+    <AuthProvider>      
       <App />
     </AuthProvider>
   </React.StrictMode>,
